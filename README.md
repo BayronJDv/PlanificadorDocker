@@ -17,7 +17,7 @@ Bayron Jojoa R 2242917
 
 ### Base de datos 
 
-se corre el siguiente comando, la contraneña debe coincidir con el archivo en config en nuestro caso es pescado:
+se corre el siguiente comando, la contraneña debe coincidir con el archivo base.py en modelito en nuestro caso es pescado:
 
     docker run -e POSTGRES_PASSWORD=pescado -p 5432:5432 postgres
 
