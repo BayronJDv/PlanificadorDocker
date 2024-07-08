@@ -18,6 +18,7 @@ def aplicar_SPN(Ejecucion):
             tiempoActual = tiempoAux
             comandosDisponibles = [comando for comando in comandos if comando.tiempo_inicio <= tiempoActual]
 
+        #elige el comando con menor tiempo estimado de los comandos que estan disponibles para el tiempo actual
         enEjecucion = min(comandosDisponibles, key=lambda  comando: comando.tiempo_estimado)
 
         original_comando = next(c for c in Ejecucion.comandos if c.id == enEjecucion.id)
