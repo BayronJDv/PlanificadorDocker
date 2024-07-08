@@ -21,13 +21,13 @@ se corre el siguiente comando, la contraneña debe coincidir con el archivo base
 
     docker run -e POSTGRES_PASSWORD=pescado -p 5432:5432 postgres
 
-### Aplicacion web 
+### Planificador de contenedores
 
 se hace el git clone a este repositorio, se inicia un entrono virtual, se activa el entrono  y se instalan los requerimientos
 
 instrucciones para windows:
 
-    git clone https://github.com/BayronJDv/proyectobases.git
+    git clone https://github.com/BayronJDv/PlanificadorDocker.git
 
     python -m venv venv 
 
