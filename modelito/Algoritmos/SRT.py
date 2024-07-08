@@ -25,9 +25,12 @@ def aplicar_SRT(Ejecucion):
         # Calcula el tiempo que tarda otro comando en llegar
         tiempoOtroComando = min([comando.tiempo_inicio for comando in comandos if comando.tiempo_inicio > tiempoActual], default=float('inf'))
 
-        # Calcula el tiempo que permite trabajar al contenedor
+        # Calcula el tiempo que permite trabajar al contenedor, siempre pausa al contenedor cuando llega otro comando
+        # que sea menor a su tiempo restante, pero si se define que el comando en ejecucion tarda menos tiempo igual
+        # va a ser usado en la siguiente ejecucion
         tiempoDeVida = min(enEjecucion.tiempo_restante, tiempoOtroComando - tiempoActual)
 
+        #Se hace uso de indice o diccionario para correlacionar los comandos con los contenedores
         indice = comandos.index(enEjecucion)
         if enEjecucion.tiempo_estimado == enEjecucion.tiempo_restante:
             enEjecucion.respose = tiempoActual - enEjecucion.tiempo_inicio

@@ -6,12 +6,13 @@ from copy import deepcopy
 def aplicar_HRRN(Ejecucion):
     comandos = deepcopy(Ejecucion.comandos)
 
+    #Define la funcion del ratio para HRRN
     def ratio(comando):
         ratio = ((tiempoActual - comando.tiempo_inicio) + comando.tiempo_estimado) / comando.tiempo_estimado
         return ratio
 
     tiempoActual = 0
-    finalizados = []
+    
     comandos.sort(key=lambda comando: comando.tiempo_inicio)
 
     while comandos:
@@ -23,6 +24,7 @@ def aplicar_HRRN(Ejecucion):
             tiempoActual = tiempoAux
             comandosDisponibles = [comando for comando in comandos if comando.tiempo_inicio <= tiempoActual]
 
+        #Usa el comando con mayor ratio, si hay un "empate" usa el de menor tiempo estimado
         enEjecucion = max(comandosDisponibles, key=lambda comando: (ratio(comando), -comando.tiempo_estimado))
 
         original_comando = next(c for c in Ejecucion.comandos if c.id == enEjecucion.id)
@@ -32,7 +34,6 @@ def aplicar_HRRN(Ejecucion):
         enEjecucion.turnaround = tiempoActual - enEjecucion.tiempo_inicio
         original_comando.setturnaround(tiempoActual - enEjecucion.tiempo_inicio)
         
-        finalizados.append(enEjecucion)
         comandos.remove(enEjecucion)
 
         print(f"ejecutando : {enEjecucion.comando}")
