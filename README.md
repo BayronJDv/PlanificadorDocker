@@ -1,6 +1,6 @@
 # PlanificadorDocker
 
-# link video yputube 
+# link video youtube 
 
 link : 
 
@@ -9,3 +9,6 @@ link :
 Alejandro Muñoz Guerrero 2242951
 
 Bayron Jojoa R 2242917
+
+## Importante:
+Debido a las librerias del programa este solo puede ser ejecutado en windows
