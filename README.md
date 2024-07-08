@@ -2,7 +2,7 @@
 
 # link video youtube 
 
-link : 
+link : https://youtu.be/Ywx2jiYAtPg
 
 ## integrantes 
 
